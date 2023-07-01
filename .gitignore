@@ -1,4 +1,4 @@
 .idea
-twitter
-scicap_data
-WiT
+twitter/
+WiT/
+*.ipynb_checkpoints
