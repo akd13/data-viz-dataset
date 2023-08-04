@@ -3,3 +3,4 @@ twitter/
 WiT/
 *.ipynb_checkpoints
 venv/
+*.ipynb
