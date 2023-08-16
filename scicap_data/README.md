@@ -37,3 +37,5 @@ scicap_data.zip
 ```
 python3 scicap_data.py
 ```
+
+This will generate CSV files with the filename and caption
