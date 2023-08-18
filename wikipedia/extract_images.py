@@ -74,7 +74,7 @@ def process_row(row):
         if predicted_label not in label_counts:
             label_counts[predicted_label] = 0
         label_counts[predicted_label] += 1
-        if predicted_label == 1: # this is the label for 'others', aka images that are not charts/graphs
+        if predicted_label == 2: # this is the label for 'others', aka images that are not charts/graphs
             os.remove(image_path)
     except Exception as e:
         print(f"Exception is {e} for {image_url}")
