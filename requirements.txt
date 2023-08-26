@@ -5,3 +5,6 @@ torchvision
 transformers
 numpy
 Pillow
+tweepy
+IPython
+Jupyter

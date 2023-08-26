@@ -1,6 +1,6 @@
 import gc
 import os
-import sys
+import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
@@ -10,16 +10,22 @@ import torch
 from PIL import Image
 from transformers import ViTFeatureExtractor, ViTForImageClassification
 
-# TODO: Refactor using argparse
-filename = sys.argv[1]
-folder_path = sys.argv[2]
-model_path = sys.argv[3]
+parser = argparse.ArgumentParser(description='Image processing and classification')
+parser.add_argument('filename', type=str, help='Input CSV filename')
+parser.add_argument('folder', type=str, help='Path to save images')
+parser.add_argument('model', type=str, help='Path to the model')
+args = parser.parse_args()
+
+filename = args.filename
+folder_path = args.folder_path
+model_path = args.model_path
 test_folder = folder_path
 
 df = pd.read_csv(filename, sep='\t')
 
 gc.collect()
 
+LABEL_OTHERS = 2  # this is the label for 'others', aka images that are not charts/graphs
 # create the folder if it doesn't exist
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
@@ -74,12 +80,13 @@ def process_row(row):
         if predicted_label not in label_counts:
             label_counts[predicted_label] = 0
         label_counts[predicted_label] += 1
-        if predicted_label == 2: # this is the label for 'others', aka images that are not charts/graphs
+        if predicted_label == LABEL_OTHERS:
             os.remove(image_path)
     except Exception as e:
         print(f"Exception is {e} for {image_url}")
         if image_path:
             os.remove(image_path)
+
 
 last_index_processed = None
 
