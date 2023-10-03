@@ -17,7 +17,7 @@ parser.add_argument('--model', type=str, help='Path to the model')
 args = parser.parse_args()
 
 filename = args.filename
-folder_path = args.folder_path
+folder_path = args.folder
 model_path = args.model_path
 test_folder = folder_path
 
