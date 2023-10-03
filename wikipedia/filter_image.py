@@ -5,7 +5,7 @@ import pandas as pd
 
 def main():
     parser = argparse.ArgumentParser(description='Filter and process CSV file.')
-    parser.add_argument('filename', type=str, help='Input CSV filename')
+    parser.add_argument('--filename', type=str, help='Input CSV filename')
     args = parser.parse_args()
 
     filename = args.filename

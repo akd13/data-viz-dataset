@@ -11,9 +11,9 @@ from PIL import Image
 from transformers import ViTFeatureExtractor, ViTForImageClassification
 
 parser = argparse.ArgumentParser(description='Image processing and classification')
-parser.add_argument('filename', type=str, help='Input CSV filename')
-parser.add_argument('folder', type=str, help='Path to save images')
-parser.add_argument('model', type=str, help='Path to the model')
+parser.add_argument('--filename', type=str, help='Input CSV filename')
+parser.add_argument('--folder', type=str, help='Path to save images')
+parser.add_argument('--model', type=str, help='Path to the model')
 args = parser.parse_args()
 
 filename = args.filename

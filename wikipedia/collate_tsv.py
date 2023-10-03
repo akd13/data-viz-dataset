@@ -4,9 +4,9 @@ import os
 import pandas as pd
 
 parser = argparse.ArgumentParser(description='Process TSV file and image folder')
-parser.add_argument('tsv_file_path', type=str, help='Path to the input TSV file')
-parser.add_argument('image_folder_path', type=str, help='Path to the image folder')
-parser.add_argument('output_tsv_path', type=str, help='Path to the output TSV file')
+parser.add_argument('--tsv_file_path', type=str, help='Path to the input TSV file')
+parser.add_argument('--image_folder_path', type=str, help='Path to the image folder')
+parser.add_argument('--output_tsv_path', type=str, help='Path to the output TSV file')
 args = parser.parse_args()
 
 tsv_file_path = args.tsv_file_path
