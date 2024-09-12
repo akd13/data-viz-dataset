@@ -1,6 +1,8 @@
 .idea
-twitter/
-WiT/
+ignore/WiT/
 *.ipynb_checkpoints
 venv/
 *.ipynb
+wikipedia/*
+twitter/*
+ignore/*
